@@ -159,3 +159,5 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /.idea/
+/first_5_seconds.mp4
+/second_5_seconds.mp4
