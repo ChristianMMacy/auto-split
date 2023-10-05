@@ -1,24 +1,22 @@
+import os
+import yaml
 from ffmpeg import FFmpeg
+
+with open('files.yml', 'r') as raw_file:
+    file_config = yaml.safe_load(raw_file)
 
 
 def main():
-    input_file_name = "test_video.mp4"
-    first_file_name = "first_5_seconds.mp4"
-    first_file_start = "00:00"
-    first_file_duration = "00:05"
-    second_file_name = "second_5_seconds.mp4"
-    second_file_start = "00:05"
-    second_file_duration = "00:05"
-    for file in [[first_file_name, first_file_start, first_file_duration], [second_file_name,
-                                                                            second_file_start,
-                                                                            second_file_duration]]:
+    for file in file_config["output_files"]:
+        if os.path.isfile(file["name"]):
+            os.remove(file["name"])
         ffmpeg = (
             FFmpeg()
-            .input(input_file_name, {"ss": file[1]})
+            .input(file_config['input_file']['name'], {"ss": file["start"]})
             .output(
-                file[0],
+                file["name"],
                 c="copy",
-                t=file[2]
+                t=file["duration"]
             )
         )
 
