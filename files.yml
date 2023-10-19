@@ -3,11 +3,11 @@ input_file:
 
 output_files:
   - name: "first_5_seconds.mp4"
-    start: "00:00"
-    duration: "00:05"
+    start: "00:00:00"
+    end: "00:00:05"
   - name: "second_5_seconds.mp4"
-    start: "00:05"
-    duration: "00:05"
+    start: "00:00:04"
+    end: "00:00:09.5"
   - name: "middle_5_seconds.mp4"
-    start: "00:02.500"
-    duration: "00:05"
+    start: "00:00:02.5"
+    end: "00:00:07.5"
