@@ -1,5 +1,5 @@
 input_file:
-  name: "test_video.mp4"
+  name: "resources/test_video.mp4"
 
 output_files:
   - name: "first_5_seconds.mp4"
