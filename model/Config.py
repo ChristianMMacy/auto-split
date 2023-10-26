@@ -4,7 +4,7 @@ from model import OutputFile, File
 
 
 class Config(contextlib.ExitStack):
-    file_path = '../resources/files.yml'
+    file_path = 'resources/files.yml'
 
     input_file: File
     output_files = []

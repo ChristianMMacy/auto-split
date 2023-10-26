@@ -8,7 +8,7 @@ def format_time(delta: timedelta):
 
 
 class OutputFile(File):
-    default_duration = '00:00:00.0'
+    default_duration = '00:00:00.000'
 
     start = default_duration
     end = default_duration

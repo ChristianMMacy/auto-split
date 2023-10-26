@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  split:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./resources:/usr/src/app/resources
+      - ./out:/usr/src/app/out
