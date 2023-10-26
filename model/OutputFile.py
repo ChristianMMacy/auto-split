@@ -16,8 +16,13 @@ class OutputFile(File):
 
     def __init__(self, file):
         super().__init__(file)
-        self.start = time.fromisoformat(file.get("start", self.start))
-        self.end = time.fromisoformat(file.get("end", self.end))
+        try:
+            self.start = time.fromisoformat(file.get("start", self.start))
+            self.end = time.fromisoformat(file.get("end", self.end))
 
-        delta = datetime.combine(date.min, self.end) - datetime.combine(date.min, self.start)
-        self.duration = file.get("duration", format_time(delta))
+            delta = datetime.combine(date.min, self.end) - datetime.combine(date.min, self.start)
+            self.duration = file.get("duration", format_time(delta))
+        except ValueError as e:
+            print(f'''There was a problem reading the time values for {self.name}
+Time values must be specified as "00:00:00(.000)" (Hours:Minutes:Seconds(.OptionalMilliseconds))''')
+            raise e
