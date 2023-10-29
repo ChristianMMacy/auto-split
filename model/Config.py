@@ -17,7 +17,7 @@ class Config(contextlib.ExitStack):
 
     def __init__(self):
         super().__init__()
-        load_dotenv('.env.local')
+        load_dotenv()
         self.refresh_token = getenv('REFRESH_TOKEN')
         self.secret_config = getenv('SECRET_CONFIG')
 

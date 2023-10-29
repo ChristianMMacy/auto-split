@@ -45,7 +45,7 @@ def hit_youtube():
         if config.refresh_token is None:
             # Debug and inspect this response to get the refresh token
             # Visit the [url,] from auth_url_response, sign in, and get the "code" query param from the response
-            # Run again to get the access_token_response and add the refresh token to environment (e.g. via .env.local)
+            # Run again to get the access_token_response and add the refresh token to environment (e.g. via .env.example.local)
             access_token_response = client.generate_access_token(
                 code="Follow Steps Above to Generate This",
                 scope=scopes, return_json=True)
