@@ -2,7 +2,7 @@ import json
 import os
 
 from ffmpeg import FFmpeg
-from pyyoutube import Client, AccessToken, Video, VideoSnippet, Thumbnails
+from pyyoutube import Client, Video, VideoSnippet, Thumbnails
 from pyyoutube.media import Media
 from pyyoutube.models.common import Thumbnail
 
@@ -57,12 +57,9 @@ def hit_youtube():
             access_token_response = client.generate_access_token(
                 authorization_response=url,
                 scope=scopes)
-            print(f"Your token: {access_token_response}")
+            print(f"Your refresh token: {access_token_response.refresh_token}")
         else:
-            access_token_response = client.refresh_access_token(config.refresh_token)
-            print(f"Your token: {access_token_response}")
-        resp = client.channels.list(mine=True)
-        print(f"Your channel id: {resp.items[0].id}")
+            client.access_token = client.refresh_access_token(config.refresh_token).access_token
         body = Video(snippet=VideoSnippet(title="test video", description="test",
                                           thumbnails=Thumbnails(default=Thumbnail("resources/profpic.jpg"))))
         media = Media(filename="out/first_5_seconds.mp4")
