@@ -2,6 +2,13 @@
 
 Splits video simply and quickly.
 
+# WIP: Adding YouTube functionality
+This tool should allow splitting videos but then also have the ability to load videos to YouTube. 
+
+I would prefer that this YouTube functionality be treated as a separate microservice, so ideally `auto-split` would create a manifest of some sort along with video resources. This manifest would describe the videos and pass along any meta-data that would be relevant to YouTube, e.g. title and description.
+
+During active development, it's OK for the YouTube code to live with the `auto-spit` code as long as they don't get intermingled in a way that makes things hard to split up later.
+
 # Splitting a Video
 ## ./resources/files.yml
 This file is how we define the input video and output videos. A sample configuration is included that you can play with.

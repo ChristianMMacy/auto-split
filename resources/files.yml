@@ -1,13 +1,23 @@
 input_file:
   name: "resources/test_video.mp4"
+  recording_date: "10/31/2023"
 
 output_files:
   - name: "out/first_5_seconds.mp4"
-    start: "00:00"
-    end: "00:05"
-  - name: "out/second_5_seconds.mp4"
-    start: "00:00:04"
-    end: "00:00:09.500"
+    start: "00:00:00"
+    end: "00:05:00.000"
+    meta:
+      title: "first 5"
+      description: "video with the first 5 seconds"
+  - name: "out/last_5_seconds.mp4"
+    start: "00:00:05.000"
+    duration: "00:00:05.000"
+    meta:
+      title: "last 5"
+      description: "video with the last 5 seconds"
   - name: "out/middle_5_seconds.mp4"
     start: "00:00:02.500"
     end: "00:00:07.500"
+    meta:
+      title: "middle 5"
+      description: "video with the middle 5 seconds"
